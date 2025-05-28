@@ -29,6 +29,12 @@ public class Plugin : BasePlugin
 
         // Register all commands in the assembly with VCF
         CommandRegistry.RegisterAll();
+
+        if (Core.GetWorld("Server") != null)
+        {
+            Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} version {MyPluginInfo.PLUGIN_VERSION} is reloaded!");
+            Core.Initialize();
+        }
     }
 
     public override bool Unload()
